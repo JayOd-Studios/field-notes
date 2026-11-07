@@ -1,0 +1,58 @@
+# Field Notes — sample editorial publication
+
+A self-contained sample site: a seasonal magazine issue with a lead essay, a
+filterable contents list, an archive and a subscribe form. It is a **portfolio
+template** — the magazine is fictional and the form sends nothing.
+
+- Sector: Editorial publication / long-form journal
+- Stack: static HTML, CSS and vanilla JS. No build step, no webfonts, no CDN.
+- Run: `python3 -m http.server 3000` in this folder.
+- Files: `index.html`, `styles.css`, `main.js`.
+
+## The brand, as written
+
+| Item | Value |
+| --- | --- |
+| Name | Field Notes |
+| One-liner | Essays on landscape, memory and the places between. |
+| Audience | Readers of literary non-fiction; 2,400 subscribers, four issues a year. |
+| Tone | First person, specific, unhurried. Never "content". |
+| Paper | `#F6F0E4` warm cream, ink `#1D1A15`, rust `#9C3A22`, moss `#5D6650` |
+| Type | Iowan Old Style / Palatino / Georgia display; system sans for labels |
+| Grid | 1180px page, 66ch measure, hairline rules, no cards with shadows |
+
+### Screen inventory
+
+1. **Masthead** — issue number and season, oversized wordmark, subscription line, section nav.
+2. **Lead story** — portrait plate, kicker, headline, standfirst, byline, drop cap, pull quote.
+3. **In this issue** — six numbered pieces, filterable by Essays / Walks / Interviews, read times.
+4. **Archive** — three cards with drawn landscape plates.
+5. **Subscribe** — the pitch, price, validation and honest "sample" note.
+6. **Footer** — repeated nav, sample disclosure.
+
+### Sample content
+
+- Issue 14, Autumn 2026. £18 a year. Six contributors, 2,400 readers.
+- Lead: *The long walk home* by Maya Ellis, 6 min, 12 October 2026.
+- Contents: *A ferry to nowhere* (9 min), *The last lighthouse keeper* (14), *Salt and signal* (7), *Three bridges, one river* (5), *The mapmaker's daughter* (11).
+- Archive: *A cliff in November*, *The wood that moved*, *Notes from the Sound*.
+
+## What to show it for
+
+Pitch this at publishers, writers and small magazines: it demonstrates editorial
+hierarchy, a readable measure, real serif typography without webfont weight, a
+scroll-linked reading progress bar, drawn artwork rather than stock photos, and a
+form with inline validation.
+
+## Make it yours
+
+- Brand: swap the wordmark, the tagline in `.brand-note`, the palette tokens and `<title>`.
+- Pieces: edit the `<li data-kind="essay|walk|interview">` items — the filter reads `data-kind` and the chips need no change.
+- Art: the three `.plate-*` classes are layered CSS gradients. Replace them with `<img>` (and keep `aspect-ratio`) when real photography arrives.
+- Form: replace the handler in `main.js` with a POST to your provider, and add the endpoint to a CSP if you add one.
+
+## Limits
+
+One page, one issue. There is no article template, pagination, search or CMS;
+the reading progress bar measures this page. Good enough to show, not to publish
+a magazine on.
