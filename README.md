@@ -26,7 +26,7 @@ template** — the magazine is fictional and the form sends nothing.
 1. **Masthead** — issue number and season, oversized wordmark, subscription line, section nav.
 2. **Lead story** — portrait plate, kicker, headline, standfirst, byline, drop cap, pull quote.
 3. **In this issue** — six numbered pieces, filterable by Essays / Walks / Interviews, read times.
-4. **Archive** — three cards with drawn landscape plates.
+4. **Archive** — three cards with landscape photographs.
 5. **Subscribe** — the pitch, price, validation and honest "sample" note.
 6. **Footer** — repeated nav, sample disclosure.
 
@@ -41,8 +41,8 @@ template** — the magazine is fictional and the form sends nothing.
 
 Pitch this at publishers, writers and small magazines: it demonstrates editorial
 hierarchy, a readable measure, real serif typography without webfont weight, a
-scroll-linked reading progress bar, drawn artwork rather than stock photos, and a
-form with inline validation.
+scroll-linked reading progress bar, full-bleed editorial photography, and a form
+with inline validation.
 
 ## Motion
 
@@ -57,8 +57,14 @@ static without it. `main.js` owns the whole layer.
 
 - Brand: swap the wordmark, the tagline in `.brand-note`, the palette tokens and `<title>`.
 - Pieces: edit the `<li data-kind="essay|walk|interview">` items — the filter reads `data-kind` and the chips need no change.
-- Art: the three `.plate-*` classes are layered CSS gradients. Replace them with `<img>` (and keep `aspect-ratio`) when real photography arrives.
+- Art: photography lives in `assets/`. Keep each `.plate` wrapper's aspect ratio and replace the image files when your own shoot arrives. Credits are in `ASSETS.md`.
 - Form: replace the handler in `main.js` with a POST to your provider, and add the endpoint to a CSP if you add one.
+
+## Photography
+
+The site uses four locally hosted Pexels photographs. They are free to use under
+the Pexels license; source pages, photographers and the exact crops are listed
+in [`ASSETS.md`](ASSETS.md).
 
 ## Limits
 
