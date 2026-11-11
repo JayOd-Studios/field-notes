@@ -532,3 +532,71 @@ blockquote cite {
 }
 .back-gallery:hover { background: var(--ink); border-color: var(--ink); color: var(--paper); }
 .back-gallery:focus-visible { outline: 2px solid var(--rust); outline-offset: 3px; }
+
+/* ---------- Motion layer ---------- */
+
+:root { --ease-out: cubic-bezier(0.22, 1, 0.36, 1); }
+
+.has-motion .will-reveal {
+  opacity: 0;
+  transform: translate3d(0, 22px, 0);
+  transition: opacity 720ms var(--ease-out), transform 720ms var(--ease-out);
+  transition-delay: calc(var(--reveal-i, 0) * 70ms);
+}
+.has-motion .will-reveal.is-in { opacity: 1; transform: none; }
+
+.reading-rail {
+  position: fixed;
+  left: 22px;
+  top: 0;
+  bottom: 0;
+  z-index: 55;
+  width: 1px;
+  background: var(--rule);
+  pointer-events: none;
+}
+.reading-rail span {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: var(--rust);
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 90ms linear;
+}
+
+.has-motion .lead-art { transform: translate3d(0, var(--shift, 0px), 0); will-change: transform; }
+.has-motion .brand { animation: fn-word 950ms 90ms var(--ease-out) both; }
+.has-motion .masthead .topline { animation: fn-rise 700ms 40ms var(--ease-out) both; }
+.has-motion .brand-note { animation: fn-rise 800ms 180ms var(--ease-out) both; }
+.has-motion .masthead nav { animation: fn-rise 700ms 240ms var(--ease-out) both; }
+
+@keyframes fn-word {
+  from { opacity: 0; letter-spacing: 0.015em; transform: translateY(10px); }
+  to { opacity: 1; letter-spacing: -0.045em; transform: none; }
+}
+@keyframes fn-rise {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: none; }
+}
+
+.has-motion .plate-coast::before { animation: fn-coast 18s ease-in-out infinite alternate; }
+@keyframes fn-coast {
+  from { transform: translate3d(-1.5%, 0, 0) scale(1.02); }
+  to { transform: translate3d(1.5%, -2.5%, 0) scale(1.05); }
+}
+
+.has-motion .archive-card .plate { transition: transform 480ms var(--ease-out); }
+.has-motion .archive-card:hover .plate { transform: translate3d(0, -5px, 0) scale(1.015); }
+
+.has-motion .signup.is-confirmed .fine { animation: fn-confirm 800ms var(--ease-out); }
+@keyframes fn-confirm {
+  0% { opacity: 0.3; transform: translateY(5px); }
+  100% { opacity: 1; transform: none; }
+}
+
+.text-link.static { color: var(--muted); border-bottom-color: transparent; cursor: default; }
+
+@media (max-width: 900px) {
+  .reading-rail { display: none; }
+}

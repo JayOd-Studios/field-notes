@@ -44,6 +44,15 @@ hierarchy, a readable measure, real serif typography without webfont weight, a
 scroll-linked reading progress bar, drawn artwork rather than stock photos, and a
 form with inline validation.
 
+## Motion
+
+A small dependency-free motion layer runs on top of the page. It adds a
+scroll-linked reading rail, a parallax lead plate, staggered reveals for the
+lead copy, issue rows and archive cards, and a live filter transition when a
+section chip or the Walks/Interviews nav links are used. The layer only runs
+when `prefers-reduced-motion` is not set; the page stays fully readable and
+static without it. `main.js` owns the whole layer.
+
 ## Make it yours
 
 - Brand: swap the wordmark, the tagline in `.brand-note`, the palette tokens and `<title>`.
